@@ -6,7 +6,7 @@ syntax on
 filetype plugin indent on
 let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe"
 let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher"
-let g:evervim_devtoken='S=s37:U=3b2c04:E=142bd4b5a5e:C=13b659a2e5e:P=1cd:A=en-devtoken:H=e356a3297594f631367849e033d700f8'
+
 " Navigate between windows using Alt+arrows
 map <C-UP> <C-W><C-UP>
 map <C-DOWN> <C-W><C-DOWN>
