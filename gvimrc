@@ -1,3 +1,4 @@
+source ~/.vimrc
 set go-=T
 set bg=dark
 if &background == "dark"

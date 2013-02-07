@@ -1,19 +1,45 @@
 " run pathogen stuff first
 call pathogen#infect()
-Helptags
+call pathogen#helptags()
 
 syntax on
 filetype plugin indent on
-let g:sclangPipeApp     = "~/.vim/bundle/scvim/bin/start_pipe"
-let g:sclangDispatcher  = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 
-" Navigate between windows using Alt+arrows
+" pull in local vim file
+source $HOME/.vimrclocal.vim
+
+" define the ctags file
+set tags+=$HOME/.tags
+
+" use the Solarized colour skeme
+set background=dark
+let g:solarized_termtrans = 1
+colorscheme solarized
+
+" bash like filename completion
+set wildmode=longest:full
+set wildmenu
+
+" setup the custom supercollider ctags stuff
+let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
+
+" Key mappings -----------------------------
+let mapleader=","
+set backspace+=indent,eol,start
+
+" ,be to open buffexplorer
+nmap <leader>be :BufExplorer<CR>
+" ,tl to toggle Taglist
+nmap <leader>tl :TlistToggle<CR>
+
+
+" Navigate between windows using ctrl+arrows
 map <C-UP> <C-W><C-UP>
 map <C-DOWN> <C-W><C-DOWN>
-map <C-LEFT> <C-W><C-LEFT>
-map <C-RIGHT> <C-W><C-RIGHT>
+map <C-LEFT> <C-W><C-h>
+map <C-RIGHT> <C-W><C-l>
 
-let leader=","
+
 "VimOrganizer Stuff
 let g:ft_ignore_pat = '\.org'
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
@@ -48,13 +74,20 @@ let g:org_tags_alist='{@home(h) @work(w)} {easy(e) hard(d)} {computer(c) phone(p
 " in current Vim instance:
 " Below is line I use in my Windows install:
 " NOTE:  case sensitive even on windows.
-let g:org_agenda_select_dirs=["~/desktop/org_files"]
-let g:org_agenda_files = split(glob("~/desktop/org_files/org-mod*.org"),"\n")
+let g:org_agenda_select_dirs=["~/Dropbox/org"]
+let g:org_agenda_files = split(glob("~/Dropbox/*.org"),"\n")
 
 " ----------------------
 " Emacs setup
 " ----------------------
 " To use Emacs you will need to define the client.  On
 " Linux/OSX this is typically simple, just:
-let g:org_command_for_emacsclient = 'emacsclient'
+let g:org_command_for_emacsclient = '/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 "
+" Set up the correct path variables
+let s:path = system("echo echo VIMPATH'${PATH}' | $SHELL -l")
+let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
+
+" Processing help use local
+let processing_doc_style='local'
+let processing_doc_path='/Applications/Processing.app/Contents/Resources/Java/modes/java/reference/'
