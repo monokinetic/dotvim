@@ -20,6 +20,8 @@ colorscheme solarized
 set wildmode=longest:full
 set wildmenu
 
+" set up SuperTab to play nicely
+let g:SuperTabDefaultCompletionType = "context"
 " setup the custom supercollider ctags stuff
 let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
 
@@ -31,6 +33,16 @@ set backspace+=indent,eol,start
 nmap <leader>be :BufExplorer<CR>
 " ,tl to toggle Taglist
 nmap <leader>tl :TlistToggle<CR>
+" ,sc to start sc
+nmap <leader>sc :SClangStart<CR>
+" ,sk to kill sc
+nmap <leader>sk :SClangKill<CR>
+" ,sr to recompile sc
+nmap <leader>sr :SClangRecompile<CR>
+" ,w- to maximise a window 
+nmap <leader>w- <C-W>_
+" ,w= to equalise all windows 
+nmap <leader>w= <C-W>=
 
 
 " Navigate between windows using ctrl+arrows
