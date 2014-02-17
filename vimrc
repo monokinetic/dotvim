@@ -1,3 +1,6 @@
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ['autotag']
+ 
 " run pathogen stuff first
 call pathogen#infect()
 call pathogen#helptags()
@@ -23,7 +26,7 @@ set wildmenu
 " set up SuperTab to play nicely
 let g:SuperTabDefaultCompletionType = "context"
 " setup the custom supercollider ctags stuff
-let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
+" let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
 
 " Key mappings -----------------------------
 let mapleader=","
