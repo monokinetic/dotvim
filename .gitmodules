@@ -37,6 +37,3 @@
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
-[submodule "sc_auto_complete"]
-	path = sc_auto_complete
-	url = https://github.com/dathinaios/sc_auto_complete.git
