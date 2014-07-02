@@ -100,6 +100,16 @@ let g:org_command_for_emacsclient = '/Applications/Emacs.app/Contents/MacOS/bin/
 let s:path = system("echo echo VIMPATH'${PATH}' | $SHELL -l")
 let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
 
-" Processing help use local
-let processing_doc_style='local'
-let processing_doc_path='/Applications/Processing.app/Contents/Resources/Java/modes/java/reference/'
+" Use powerline
+" python from powerline.bindings.vim import source_plugin; source_plugin()
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim 
+
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+set laststatus=2
+set guifont=Inconsolata\ for\ Powerline:h12
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
