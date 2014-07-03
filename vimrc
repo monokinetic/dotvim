@@ -105,9 +105,7 @@ let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
 
 " Use powerline
 " python from powerline.bindings.vim import source_plugin; source_plugin()
-" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim 
-
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim 
 set laststatus=2
 set guifont=Inconsolata\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
