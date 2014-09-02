@@ -1,3 +1,6 @@
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = ['autotag']
+ 
 " run pathogen stuff first
 call pathogen#infect()
 call pathogen#helptags()
@@ -23,7 +26,7 @@ set wildmenu
 " set up SuperTab to play nicely
 let g:SuperTabDefaultCompletionType = "context"
 " setup the custom supercollider ctags stuff
-let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
+" let tlist_supercollider_settings='supercollider;c:class name;m:class methods;i:instance methods;v:variables'
 
 " Key mappings -----------------------------
 let mapleader=","
@@ -101,7 +104,8 @@ let s:path = system("echo echo VIMPATH'${PATH}' | $SHELL -l")
 let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
 
 " Use powerline
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+" python from powerline.bindings.vim import source_plugin; source_plugin()
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim 
 set laststatus=2
 set guifont=Inconsolata\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
