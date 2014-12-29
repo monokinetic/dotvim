@@ -8,8 +8,9 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
-" pull in local vim file
+" pull in local vim files
 source $HOME/.vimrclocal.vim
+source $HOME/.vim/plugin/myFunctions.vim
 
 " define the ctags file
 set tags+=$HOME/.tags
