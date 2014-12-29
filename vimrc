@@ -46,6 +46,12 @@ nmap <leader>sr :SClangRecompile<CR>
 nmap <leader>w- <C-W>_
 " ,w= to equalise all windows 
 nmap <leader>w= <C-W>=
+" ,mf make format
+nmap <leader>mf :call MyMaker("format")<CR>
+" ,mv make valid
+nmap <leader>mv :call MyMaker("valid")<CR>
+" ,mh make html
+nmap <leader>mh :call MyMaker("html")<CR>
 
 
 " Navigate between windows using ctrl+arrows
@@ -54,6 +60,9 @@ map <C-DOWN> <C-W><C-DOWN>
 map <C-LEFT> <C-W><C-h>
 map <C-RIGHT> <C-W><C-l>
 
+" Navigate between prev / next buffer using shift left / right
+map <S-LEFT> :bprevious<CR>
+map <S-RIGHT> :bnext<CR>
 
 "VimOrganizer Stuff
 let g:ft_ignore_pat = '\.org'
@@ -103,10 +112,17 @@ let g:org_command_for_emacsclient = '/Applications/Emacs.app/Contents/MacOS/bin/
 let s:path = system("echo echo VIMPATH'${PATH}' | $SHELL -l")
 let $PATH = matchstr(s:path, 'VIMPATH\zs.\{-}\ze\n')
 
-" Use powerline
-" python from powerline.bindings.vim import source_plugin; source_plugin()
+" Use powerline, configure depending on OS we are running. See .vim/plugin/myFunctions.vim for GetRunningOS()
+let os = GetRunningOS()
+if os == "linux"
+source $HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+elseif os == "mac"
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim 
+endif
+" could extend the above to run OS specific stuff
+
 set laststatus=2
+" possibly not relevant because I don't use GUI Vim?
 set guifont=Inconsolata\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
 set encoding=utf-8

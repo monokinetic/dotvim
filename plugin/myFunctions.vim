@@ -14,3 +14,12 @@ function! GetRunningOS()
 	endif
 endfunction
 
+" Run make on the current file
+" cd to the correct dir, set makeprg to correct type, run make
+" input types: html, valid, format
+function! MyMaker(var1)
+	cd %:p:h
+	" echo a:var1
+	exe 'make ' . expand('%<') . '.' . a:var1
+	" make
+endfunction
